@@ -1,0 +1,254 @@
+:root {
+    --bg: #0b0d10;
+    --glass: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.15);
+    --text: #eaeaf0;
+    --muted: #a1a1b3;
+    --accent: #5eead4;
+    --glow1: rgba(94,234,212,0.3);
+    --glow2: rgba(139,92,246,0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #12141a, var(--bg));
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+header p {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.card {
+    width: 100%;
+    margin-top: 10%;
+    max-width: 900px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 50px;
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    animation: glow 6s ease-in-out infinite;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 30px var(--glow1), 0 0 60px var(--glow2);
+    }
+    50% {
+        box-shadow: 0 0 60px var(--glow2), 0 0 100px var(--glow1);
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(94,234,212,0.15);
+    color: var(--accent);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.roster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.player img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    margin-bottom: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player:hover {
+    transform: scale(1.08);
+}
+
+.player:hover img {
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.MVP-all-time {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.MVP-all-time img {
+    width: 200px;
+    height: 200px;
+    border-radius: 24px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.cups-category {
+    margin-top: 24px;
+}
+
+.cups-list {
+    list-style: none;
+}
+
+.cups-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.cups-list li span {
+    opacity: 0.6;
+}
+
+.more-text {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.more-text h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.more-text.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.cups-list a {
+    transition: 0.3s;
+}
+
+.cups-list a:hover {
+    scale: 1.01;
+    color: #75b5d3;
+    text-decoration: underline;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 30px;
+    }
+    .player img {
+        width: 100px;
+        height: 100px;
+    }
+    .MVP-all-time img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .player img {
+        width: 80px;
+        height: 80px;
+    }
+}
