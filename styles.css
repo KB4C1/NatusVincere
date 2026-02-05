@@ -238,8 +238,7 @@ section {
 .NaVi-vid {
     display: block;
     margin: 20px auto 0;
-    width: 100%;
-    height: auto;
+    width: 60%;
     border-radius: 12px;
 }
 
