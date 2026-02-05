@@ -142,10 +142,6 @@ section {
     transform: scale(1.08);
 }
 
-.player:hover img {
-    box-shadow: 0 0 20px var(--accent);
-}
-
 .MVP-all-time {
     margin-top: 30px;
     text-align: center;
@@ -177,7 +173,6 @@ section {
 .country {
     width: 20px;
     margin-left: 6px;
-    vertical-align: middle;
     border-radius: 3px;
 }
 
@@ -233,6 +228,21 @@ section {
     text-decoration: underline;
 }
 
+.aleksib-gif {
+    display: block;
+    margin: 20px auto 0;
+    width: 70vw;
+    border-radius: 12px;
+}
+
+.NaVi-vid {
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
 footer {
     padding: 40px;
     text-align: center;
@@ -254,7 +264,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     header h1 {
         font-size: 2rem;
     }
@@ -262,7 +272,33 @@ footer {
         font-size: 1rem;
     }
     .player img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .player .country {
+        width: 26px;
+        height: 26px;
+    }
+
+    .player-img {
         width: 80px;
         height: 80px;
+    }
+    .player .MVP-img {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 400px) {
+    p {
+        font-size: 13px
+    }
+    a { 
+        font-size: 13px;
+    }
+    span {
+        font-size: 13px;
     }
 }
